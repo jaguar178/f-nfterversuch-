@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 
 # Modell laden (einmal!)
-model = tf.keras.models.load_model("model/keras_model.h5", compile=False)
+model = tf.keras.models.load_model("model/keras_model", compile=False)
 
 # Labels laden & bereinigen
 with open("model/labels.txt", "r") as f:
