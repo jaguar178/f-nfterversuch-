@@ -1,22 +1,49 @@
 {
   "BMW S1000RR": {
-    "PS": "210",
-    "Hubraum": "999cc",
-    "Gewicht": "197 kg"
+    "Marke": "BMW",
+    "Typ": "Supersport",
+    "Hubraum": "999 ccm",
+    "Leistung": "210 PS",
+    "Gewicht": "197 kg",
+    "0-100 km/h": "ca. 2.8 Sekunden",
+    "Höchstgeschwindigkeit": "ca. 299 km/h",
+    "Antrieb": "Kette",
+    "Besonderheiten": "Race-ABS, Traktionskontrolle, Quickshifter, Launch Control"
   },
-  "Kawasaki H2R": {
-    "PS": "310",
-    "Hubraum": "998cc",
-    "Gewicht": "216 kg"
-  },
-  "KTM EXC": {
-    "PS": "ca. 50",
-    "Hubraum": "450cc",
-    "Gewicht": "109 kg"
-  },
+
   "Honda CRF": {
-    "PS": "ca. 40",
-    "Hubraum": "450cc",
-    "Gewicht": "110 kg"
+    "Marke": "Honda",
+    "Typ": "Enduro / Motocross",
+    "Hubraum": "250–450 ccm (modellabhängig)",
+    "Leistung": "ca. 40–55 PS",
+    "Gewicht": "ca. 110–130 kg",
+    "0-100 km/h": "nicht primär relevant",
+    "Höchstgeschwindigkeit": "ca. 130–150 km/h",
+    "Antrieb": "Kette",
+    "Besonderheiten": "Offroad-Fahrwerk, leichtes Gewicht, hohe Bodenfreiheit"
+  },
+
+  "KTM EXC": {
+    "Marke": "KTM",
+    "Typ": "Enduro",
+    "Hubraum": "125–500 ccm (modellabhängig)",
+    "Leistung": "ca. 15–60 PS",
+    "Gewicht": "ca. 100–115 kg",
+    "0-100 km/h": "nicht primär relevant",
+    "Höchstgeschwindigkeit": "ca. 120–160 km/h",
+    "Antrieb": "Kette",
+    "Besonderheiten": "Straßenzulassung (je nach Modell), Offroad-Optimierung, sehr leicht"
+  },
+
+  "Kawasaki H2R": {
+    "Marke": "Kawasaki",
+    "Typ": "Hyperbike / Track-Only",
+    "Hubraum": "998 ccm",
+    "Leistung": "ca. 310 PS",
+    "Gewicht": "216 kg",
+    "0-100 km/h": "ca. 2.5 Sekunden",
+    "Höchstgeschwindigkeit": "über 400 km/h (theoretisch)",
+    "Antrieb": "Kette",
+    "Besonderheiten": "Kompressor (Supercharged), nicht straßenzugelassen, Carbon-Winglets"
   }
 }
