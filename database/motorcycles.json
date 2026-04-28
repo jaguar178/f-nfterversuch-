@@ -1,0 +1,22 @@
+{
+  "BMW S1000RR": {
+    "PS": "210",
+    "Hubraum": "999cc",
+    "Gewicht": "197 kg"
+  },
+  "Kawasaki H2R": {
+    "PS": "310",
+    "Hubraum": "998cc",
+    "Gewicht": "216 kg"
+  },
+  "KTM EXC": {
+    "PS": "ca. 50",
+    "Hubraum": "450cc",
+    "Gewicht": "109 kg"
+  },
+  "Honda CRF": {
+    "PS": "ca. 40",
+    "Hubraum": "450cc",
+    "Gewicht": "110 kg"
+  }
+}
