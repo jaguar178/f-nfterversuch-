@@ -1,3 +1,9 @@
+import os
+
+print("Current working dir:", os.getcwd())
+print("Model exists:", os.path.exists("model/keras_model.h5"))
+
+
 import tensorflow as tf
 import numpy as np
 
