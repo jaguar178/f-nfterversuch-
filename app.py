@@ -3,14 +3,19 @@ import json
 from PIL import Image
 from utils.predict import predict_image
 
-# Daten laden
-try:
-    with open("database/motorcycles.json") as f:
-        db = json.load(f)
-except:
-    db = {}
+# --- Daten laden ---
+@st.cache_data
+def load_db():
+    try:
+        with open("database/motorcycles.json") as f:
+            return json.load(f)
+    except Exception as e:
+        st.error(f"Datenbank Fehler: {e}")
+        return {}
 
-st.title("🏍️ Motorrad Erkennung")
+db = load_db()
+
+st.title("Motorrad Erkennung")
 
 uploaded_file = st.file_uploader("Bild hochladen", type=["jpg", "png", "jpeg"])
 
@@ -20,20 +25,45 @@ if uploaded_file:
 
     with st.spinner("Analysiere Bild..."):
         try:
-            label, confidence = predict_image(image)
+            predictions = predict_image(image)
         except Exception as e:
-            st.error(f"Fehler: {e}")
+            st.error(str(e))
             st.stop()
 
-    st.subheader("Ergebnis")
-    st.write(f"{label} ({confidence*100:.1f}%)")
+    if not predictions:
+        st.error("Keine Vorhersage möglich.")
+        st.stop()
 
-    # DEBUG (kannst du später entfernen)
-    st.write("DEBUG Labels:", label)
+    top_pred = predictions[0]
+    label = top_pred["label"]
+    confidence = top_pred["confidence"]
 
+    # Confidence Filter
+    if confidence < 0.6:
+        st.warning("Unsicheres Ergebnis – bitte besseres Bild verwenden.")
+        st.stop()
+
+    st.success(f"Erkannt: **{label}** ({confidence*100:.1f}%)")
+
+    # --- Top 3 anzeigen ---
+    with st.expander("🔝 Weitere Vorhersagen"):
+        for p in predictions[:3]:
+            st.write(f"{p['label']}: {p['confidence']*100:.1f}%")
+
+    # --- Technische Daten ---
     if label in db:
         st.subheader("Technische Daten")
-        for k, v in db[label].items():
-            st.write(f"**{k}:** {v}")
+        bike = db[label]
+
+        st.write(f"**Name:** {bike.get('name', '-')}")
+        st.write(f"**Marke:** {bike.get('brand', '-')}")
+        st.write(f"**Typ:** {bike.get('type', '-')}")
+        st.write(f"**Motor:** {bike.get('engine', '-')}")
+        st.write(f"**Leistung:** {bike.get('hp', '-')}")
+        st.write(f"**Gewicht:** {bike.get('weight', '-')}")
     else:
         st.warning("Keine Daten gefunden.")
+
+    # --- Debug ---
+    with st.expander("🔧 Debug"):
+        st.json(predictions)
